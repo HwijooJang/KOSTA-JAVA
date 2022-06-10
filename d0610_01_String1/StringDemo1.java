@@ -18,6 +18,15 @@ public class StringDemo1 {
 		System.out.println(System.identityHashCode(s3));
 		System.out.println(System.identityHashCode(s4));
 		
+		System.out.println("s1 == s2 -> " + (s1 == s2));
+		System.out.println("s1 == s3 -> " + (s1 == s3));
+		System.out.println("s1 == s4 -> " + (s1 == s4));
+		
+		s1 = s3;
+		System.out.println(System.identityHashCode(s1));
+		System.out.println("s1 == s3 -> " + (s1 == s3));
+		
+		
 	}
 
 }
