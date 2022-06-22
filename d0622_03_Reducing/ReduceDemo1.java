@@ -1,0 +1,27 @@
+package d0622_03_Reducing;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
+
+public class ReduceDemo1 {
+
+	public static void main(String[] args) {
+		List<Integer> numbers	 = List.of (3,4,5,1,2);
+		int sum1 = numbers.stream().reduce(0, (a,b) -> a + b);
+		int sum2 = numbers.stream().reduce(0, Integer::sum);
+		int mul1 = numbers.stream().reduce(1, (a,b) -> a * b);
+		System.out.printf("%d %d %d\n", sum1, sum2, mul1);
+		
+		Optional<Integer> sum3 = numbers.stream().reduce(Integer::sum);
+		OptionalInt sum4 = numbers.stream().mapToInt(x -> x.intValue()).reduce(Integer::sum);
+		Optional<Integer> mul2 = numbers.stream().reduce((a, b) -> a * b);
+		
+		System.out.printf("%d %d %d\n", sum3.get(), sum4.getAsInt(), mul2.get());
+		mul2.ifPresent(System.out::println);
+		
+		
+		
+		
+	}
+}

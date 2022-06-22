@@ -15,7 +15,7 @@ public class Test4 {
 		//Stream<Nation> n1 = Nation.nations.stream();
 		//Stream<d0621_05_Test.Nation.Type> s1 = n1.map(Nation::getType);
 		
-		System.out.print(Nation.nations.stream().filter(s -> s.getType() == Type.LAND).map(s -> s.getName()).collect(Collectors.joining(", ")));
+		System.out.print(Nation.nations.stream().filter(n -> n.getType() == Type.LAND).map(s -> s.getName()).collect(Collectors.joining(", ")));
 		
 		
 		// Nation.nations.stream().filter(s -> s.getType()).forEach(n -> System.out.print(n + ", "));
