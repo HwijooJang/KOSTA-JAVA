@@ -3,6 +3,7 @@ package d0623_02_Quiz;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.swing.AbstractAction;
@@ -28,6 +29,18 @@ public class Transactions {
 				.filter(t -> t.getYear() == 2011).collect(Collectors.toList());
 		System.out.println(tr1);
 		
+		//List<Transaction> tr11 = transactions.stream()
+			//		.filter(t -> t.getValue() == 2011)
+				//	.sorted(Comparator.comparing(Transaction::getValue, (s1, s2) -> {return s1.compareTo(s2);}))
+				//	.collect(Collectors.toList());
+		//System.out.println(tr11);
+					
+		
+	//	List<Transaction> tr11 = transactions.stream()
+		//		.filter(t -> t.getValue() == 2011)
+		//		.sorted(Comparator.comparingInt(t -> t.getValue())).collect(Collectors.toList());
+	//	System.out.println(tr11);
+		
 		// 2
 		List<String> tr2 = transactions.stream()
 				.map(x -> x.getTrader().getCity()).distinct()
@@ -47,6 +60,12 @@ public class Transactions {
 				.distinct().sorted()
 				.collect(Collectors.toList());
 		System.out.println(tr4);
+		
+		String names1 = tr4.stream().reduce("", (a, b) -> a + " " + b);
+		Optional<String> names2 = tr4.stream().reduce((a,b) -> a + " - " + b);
+		System.out.println(names2.get());
+		
+		
 		
 		//5
 		System.out.println(transactions.stream().map(Transaction::getTrader)
@@ -75,10 +94,9 @@ public class Transactions {
 		
 		
 		// 8 
-		System.out.println(transactions.stream()
-				.map(Transaction::getValue).reduce(Integer::min).get()
-				);
 		
+		System.out.println(transactions.stream()
+				.map(Transaction::getValue).reduce(Integer::min).get());		
 		
 		
 		
